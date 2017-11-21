@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    
+
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        /**
+            構文
+            Ext.form.Panelを作成する構文
+
+            Ext.create('Ext.form.Panel', {
+                items: [child1,child2]//ここに構文を追加する
+            })
+        
+        */
+
+    Ext.onReady(function() {
+        var child1 = Ext.create('Ext.Panel',{
+            html: 'Text field'
+        });
+
+        var child2 = Ext.create('Ext.Panel', {
+            html: 'Text field'
+        });
+
+        Ext.create('Ext.form.Panel', {
+            renderTo:Ext.getBody(),
+            width: 100,
+            height: 100,
+            border : true,
+            frame : true,
+            layout:'auto',//レイアウトタイプの一つ
+            items:[child1,child2]
+
+
+        })
+
+
+    })
+
+
+
+    </script>
+<script type="text/javascript">
+    Ext.onReady(function () {
+       var child1 = Ext.create('Ext.Panel',{     
+          html: 'Text field' 
+       });
+      
+       var child2 = Ext.create('Ext.Panel',{
+          html: 'Text field' 
+       });
+       Ext.create('Ext.form.Panel', {
+          renderTo: Ext.getBody(),
+          width: 100,
+          height : 100,
+          border : true,
+          frame : true,
+          layout: 'auto',// auto is one of the layout type.
+          items: [child1, child2]
+       });
+    });
+ </script>
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

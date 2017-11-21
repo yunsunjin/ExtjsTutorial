@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    
+
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        /**
+            構文
+            Ext.create('Ext.panel.Panel', {
+                items:[child1,child2]
+                //この方法でコンテナに異なる子要素を追加することができます。
+            });
+        */
+
+    Ext.onReady(function () {
+        var childPanel1 = Ext.create('Ext.Panel', {
+            html: '一番目のパネル'
+        });
+
+        var childPanel2 = Ext.create('Ext.Panel', {
+            html: '次のパネル'
+        });
+
+        Ext.create('Ext.panel.Panel', {
+            renderTo: Ext.getBody(),//これで、指定しなくても表示できるようになる
+            width: 100,
+            height: 100,
+            border: true,
+            frame: true,
+            items: [childPanel1,childPanel2]
+        });
+
+
+    });
+
+
+
+
+    
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
