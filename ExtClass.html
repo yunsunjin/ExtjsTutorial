@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ext.jsのクラスの定義</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    
+
+    <script type="text/javascript">
+    
+        /**
+            構文
+            Ext.define(class name,class members/properties,callback function);
+
+            ※クラス名はappName.folderName.ClassName studentApp.view.StudentView
+            のように、アプリの構造に応じたクラスの名前を指定します
+        */
+
+        Ext.define(ExtClass, {
+            extend: 'Ext.grid.GridPanel',//継承できる
+            id: 'ExtClass',
+            store : 'ExtClassStore',
+            renderTo : 'ExtClassDiv',
+            layout : 'fit',
+            columns : [{
+                text : 'Student Name',
+                dataIndex : 'student Name'
+            },{
+                text : 'ID',
+                dataIndex : 'studentId'
+            },{
+                text : 'Department',
+                dataIndex : 'department'
+            }]
+        });
+
+
+        //オブジェクトの作成
+
+            //新しいキーワード
+            var studentObject = new student();
+            studentObject.getStudentName();
+
+            //Ext.create()の使用
+
+            Ext.create('Ext.Panel', {
+                renderTo : 'Panel',
+                height: 100,
+                width : 100,
+                title : 'Hello world',
+                html : 'ほげ'
+            });
+
+
+            //いろんな継承
+            mixins : {
+                commons : 'DepartmentApp.utils.DepartmentUtils'
+            }//的なこともできる
+
+
+    
+    
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    
+
+
+
+</body>
+</html>
