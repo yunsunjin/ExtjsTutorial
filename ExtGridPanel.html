@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    
+
+    <title>Document</title>
+
+    
+
+<script type="text/javascript">
+    
+        /**
+            構文
+            Ext.create('Ext.grid.Panel',{
+                grid properties..
+                columns : [Columns]
+            })
+        
+        */
+    
+        //オブジェクト
+        Ext.define('StudentDataModel', {
+            extend: 'Ext.data.Model',
+            fields:[
+                {name:'name',mapping:'name'},
+                {name:'age',mapping:'age'},
+                {name:'marks',mapping:'marks'}
+            ]
+        });
+
+        //格納データ
+        Ext.onReady(function() {
+            var myData = [
+            { name : "Asha", age : "16", marks : "90" },
+            { name : "Vinit", age : "18", marks : "95" },
+            { name : "Anand", age : "20", marks : "68" },
+            { name : "Niharika", age : "21", marks : "86" },
+            { name : "Manali", age : "22", marks : "57" }
+            ];
+        
+
+        //最初のグリッドストア作成
+        var gridStore = Ext.create('Ext.data.Store', {
+            model: 'StudentDataModel',
+            data: myData
+        });
+
+        //最初のグリッド作成
+
+        Ext.create('Ext.grid.Panel', {
+           id   : 'gridId',
+           store    : gridStore,
+           stripeRows : true,
+           title : 'Student Frid',//グリッドのタイトル
+           renderTo : 'gridDiv',//divで呼び出す時の名前
+           width : 600,
+           collapsible : true,//グリッドを折りたたむプロパティー
+           enableColumnMove : true,//列をドラッグして別の位置に移動させる昨日
+           enableColumnResize:true,//列の実行時間を変更できるプロパティー
+
+
+           columns : [{
+               header: "Student Name",
+               dataIndex:'name',
+               id:'name',
+               flex: 1,//プロパティ。この列のすべての要素に対して、グリットで撮るスペース量を定義する
+               sortable:true,//グリッド列データをソートするためのプロパティ
+               hideable:true //列を非表示にできるようにする
+
+           },{
+               header:"Age",
+               dataIndex:'age',
+               flex:0.5,
+               sortable: true,
+               hideable: false //非表示にできないようにする
+           },{
+               header:"Marks",
+               dataIndex:'marks',
+               flex:0.5,
+               sortable: true,
+               //レンダラーは、ここで75を超えるマークを持ついくつかの条件に基づいてデータを操作するために使用され、区別または非区別として表示されます。
+               renderer : function (value, metadata, record,rowIndex, colIndex,store) {
+                   if (value > 75) {
+                       return "区別";
+                   }else {
+                       return "区別しない";
+                   }
+               }
+           }] 
+        });
+
+    });
+
+    </script>
+
+    
+
+    
+
+    
+
+</head>
+<body>
+
+    
+    
+
+    <div id = "gridDiv"></div>
+
+</body>
+</html>
