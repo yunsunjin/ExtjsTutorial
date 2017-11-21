@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-classic/resources/theme-classic-all.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"></script>
+    
+   
+ 
+    <script type="text/javascript">
+       Ext.onReady(function() {//Ext.jsがExt.js要素をレンダリングする準備ができたら呼び出される
+       Ext.create('Ext.Panel', {//Ext.jsオブジェクトを生成するために使用される、ここでは、単純パネルクラスが呼び出されている
+       //Ext.Panelはあらかじめ定義されているクラス
+       //全てのExt.jsくらすは、基本的な機能を実行するためにそれぞれ異なるプロパティを持っている
+          renderTo: 'helloWorldPanel',//パレルをレンダリングしますhelloWorldPanelという名前は呼び出される時のdiv IDになります
+          height: 200,
+          width: 600,
+          title: 'Hello world',
+          html: 'First Ext JS Hello World Program'
+          });
+       });
+    </script>
+
+    <script type="text/javascript">
+    Ext.onReady(function() {
+        Ext.create('Ext.Panel', {
+            renderTo: '1',
+            height: 200,
+            width: 600,
+            title: 'sunjin',
+            html: 'yun'
+        });
+    });
+    </script>
+
+
+</head>
+<body>
+
+    <!--表示-->
+    
+    <div id="helloWorldPanel"></div>
+    <div id="1"></div>
+
+</body>
+</html>
